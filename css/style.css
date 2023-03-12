@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Source+Code+Pro:wght@400;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400;1,500&family=Poppins:wght@500;600;700&family=Source+Code+Pro:wght@400;700;800&display=swap');
 
 /* Theme */
 :root {
@@ -68,6 +66,7 @@ header {
     background-color: var(--theme-black);
     box-shadow: 0 0 5px var(--theme-black);
     padding: 2%;
+    max-height: 100px;
 }
 
 header .logo {
@@ -85,7 +84,11 @@ header .logo:hover{
 }
 
 header .logo .logo-image {
-    width: 100%;
+    width: 90%;
+    max-height: 70px;
+    min-height: 40px;
+    min-width: 40px;
+    margin-right: 10px;
 }
 
 header .logo .logo-text {
@@ -112,6 +115,13 @@ header nav li a {
 header nav li a:hover {
     transform: scale(1.1);
     color: var(--primary-color-light);
+}
+
+/* This is just for increasing the hitbox size */
+header li a {
+    line-height: 3.2;
+    background: var(--theme-black);
+    padding: 13px 13px;
 }
 
 header .cta button {
