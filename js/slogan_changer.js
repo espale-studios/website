@@ -1,18 +1,24 @@
-const slogans = [
+const SLOGANS = [
     "Art for art's sake",
     "L'art pour l'art",
     "Ars gratia artis",
     "Sanat için sanat",
 ]
+const CYCLE_DUR = 4000;
+const sloganText = $("#slogan");
+
 var currentIndex = 0;
-const sloganText = document.getElementById("slogan");
 
 function cycleSlogans() {
-    sloganText.innerHTML = "\"" + slogans[currentIndex] + "\"";
+    sloganText.fadeOut(function () {
+        sloganText.html("\"" + SLOGANS[currentIndex] + "\"");
+        setTimeout(500);
+        sloganText.fadeIn();
+    });
+
     currentIndex++;
-    if (currentIndex >= slogans.length)
+    if (currentIndex >= SLOGANS.length)
         currentIndex = 0;
 }
 
-cycleSlogans();
-setInterval(cycleSlogans, 4000);
+setTimeout(setInterval(cycleSlogans, CYCLE_DUR), CYCLE_DUR);
