@@ -95,6 +95,7 @@ header .logo .logo-text {
     margin-right: auto;
     font-weight: 800;
     font-size: 2em;
+    line-height: 1;
 }
 
 
@@ -322,16 +323,18 @@ footer p{
     }
 }
 
+@media (max-width: 700px) {
+    header .logo .logo-text {
+        font-size: 0em;
+    }
+}
+
 @media (max-width: 620px) {
     :root {
         /* Fonts */
         --big-font: 3.4rem;
         --h2-font: 2.3rem;
         --p-font: 0.9rem;
-    }
-
-    header .logo .logo-text {
-        font-size: 0em;
     }
 
     header .cta button {
