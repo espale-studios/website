@@ -234,6 +234,16 @@ header .cta button:hover {
     padding: 85px 25% 65px;
 }
 
+/* Trailer */
+
+.game-trailer {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    border-color: transparent;
+    box-shadow: 0 0 10px var(--theme-black);
+}
+
 /* Games */
 
 .games .game-area {
