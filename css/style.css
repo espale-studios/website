@@ -89,6 +89,7 @@ header .logo .logo-image {
     min-height: 40px;
     min-width: 40px;
     margin-right: 10px;
+    object-fit: contain;
 }
 
 header .logo .logo-text {
@@ -350,9 +351,7 @@ footer p{
     header .logo .logo-text {
         font-size: 0em;
     }
-}
 
-@media (max-width: 620px) {
     :root {
         /* Fonts */
         --big-font: 3.4rem;
@@ -395,6 +394,10 @@ footer p{
         font-weight: 500;
         line-height: 32px;
         margin-bottom: 1rem;
+    } 
+    .home .home-text h2 {
+        width: 100%;
+        max-width: 620px;
     }
     .home .home-text p {
         width: 100%;
