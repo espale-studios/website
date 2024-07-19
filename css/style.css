@@ -207,10 +207,17 @@ header .cta button:hover {
     transform: scale(1.2);
 }
 
+.home .home-text .call-to-action-row {
+    margin-left: 52px;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+
 .home .home-text buy-now a, button{
-    margin-left: 60px;
+    margin-left: 8px;
     background: var(--primary-color);
-    padding: 8px 20px;
+    padding: 8px 8px;
     border: 4px var(--primary-color) solid;
     color: var(--theme-white);
     border-radius: 50px;
@@ -420,7 +427,13 @@ footer p{
 
     .home .home-text buy-now a, button {
         margin-top: 20px;
+        margin-left: 8px;
+    }
+
+    .home .home-text .call-to-action-row {
         margin-left: 0px;
+        justify-content: center;
+        align-items: center;
     }
 }
 
