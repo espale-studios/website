@@ -5,4 +5,8 @@
 
     --theme-white: #FFFFFF;
     --theme-black: #090909;
+
+    /* Filter Tool: https: //codepen.io/sosuke/pen/Pjoqqp */
+    --primary-color-filter: invert(13%) sepia(96%) saturate(6985%) hue-rotate(288deg) brightness(90%) contrast(98%);
+    --theme-white-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }

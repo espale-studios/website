@@ -232,6 +232,21 @@ header .cta button:hover {
     transform: scale(1.1);
 }
 
+.home .home-text .buy-now-small button img{
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: top;
+    filter: var(--theme-white-filter);
+}
+
+.home .home-text .buy-now-small button:hover img {
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: top;
+    fill: var(--primary-color);
+    filter: var(--primary-color-filter);
+}
+
 /* About */
 
 .about p{
