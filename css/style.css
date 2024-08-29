@@ -440,9 +440,22 @@ footer p{
         padding: 85px 10% 65px;
     }
 
-    .home .home-text buy-now a, button {
+    .home .home-text .buy-now a, button {
         margin-top: 20px;
         margin-left: 8px;
+        font-size: 0;
+    }
+
+    .home .home-text i{
+        font-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .home .home-text img{
+        font-size: 1rem;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 
     .home .home-text .call-to-action-row {
