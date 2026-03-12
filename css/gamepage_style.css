@@ -59,6 +59,9 @@ header li, a, button {
 }
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -147,20 +150,87 @@ header .cta button:hover {
 
 /* Home */
 
-.home {
-    position: relative;
+/* Video background */
+.home-video-bg {
+    position: absolute;
+    top: -2px;
+    left: 0;
     width: 100%;
-    height: 75vh;
+    height: calc(100% + 2px);
+    overflow: hidden;
+    z-index: 0;
+    background-color: #000;
+}
+
+.home-video-bg iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;   /* 16:9 */
+    min-width: 177.78vh; /* 16:9 */
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border: 0;
+}
+
+.home-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.home .home-content {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 2rem;
+    width: 100%;
+    transform: translateY(-60px);
+}
+
+/* White text when video background is active */
+.home:has(.home-video-bg) .home-text h1,
+.home:has(.home-video-bg) .home-text h2,
+.home:has(.home-video-bg) .home-text p {
+    color: var(--theme-white);
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+}
+
+.home::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3vh;
+    background: linear-gradient(to bottom, transparent, #FFFFFF);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.home .home-image {
+    background: transparent;
 }
 
 .home .home-image img{
     height: auto;
     width: 100%;
-    background: radial-gradient(var(--primary-color-dark) 0%, var(--primary-color-light) 10%, var(--theme-white) 65%);
+    background: transparent;
 }
 
 .home .home-text h1 {
@@ -185,26 +255,11 @@ header .cta button:hover {
     margin-bottom: 3rem;
 }
 
-.home .home-text .socials{
-    align-items: center;
-    justify-content: space-evenly;
-    line-height: 5;
-}
-
-.home .home-text .socials .description-text{
-    font-size: 0;
-}
-
-.home .home-text .socials .fa-brands{
-    color: var(--theme-black);
-    margin-right: 25px;
-    transition: var(--transition);
-}
-
-.home .home-text .socials .fa-brands:hover{
-    color: var(--primary-color);
-    margin-right: 25px;
-    transform: scale(1.2);
+.home .home-text .call-to-action-row {
+    margin-left: 52px;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
 }
 
 .home .home-text buy-now a, button{
@@ -220,9 +275,24 @@ header .cta button:hover {
 .home .home-text buy-now a,button:hover {
     background: var(--theme-white);
     color: var(--primary-color);
-    border: 4px var(--primary-color) solid;
+    border: 4px var(--theme-white) solid;
     border-radius: 50;
     transform: scale(1.1);
+}
+
+.home .home-text .buy-now-small button img{
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: top;
+    filter: var(--theme-white-filter);
+}
+
+.home .home-text .buy-now-small button:hover img {
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: top;
+    fill: var(--primary-color);
+    filter: var(--primary-color-filter);
 }
 
 /* About */
@@ -233,6 +303,16 @@ header .cta button:hover {
 
 .about {
     padding: 85px 25% 65px;
+}
+
+/* Trailer */
+
+.game-trailer {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    border-color: transparent;
+    box-shadow: 0 0 10px var(--theme-black);
 }
 
 /* Games */
@@ -262,20 +342,6 @@ header .cta button:hover {
     margin-bottom: 2rem;
 }
 
-.games .games-text a button{
-    background: var(--primary-color);
-    border-radius: 30px;
-    padding: 10px 15px;
-    border: 3px solid var(--primary-color);
-    transition: var(--transition);
-}
-
-.games .games-text a button:hover{
-    background: var(--theme-white);
-    border: 3px solid var(--primary-color);
-    color: var(--primary-color);
-}
-
 /* Footer */
 
 footer {
@@ -303,12 +369,16 @@ footer p{
     section {
         padding: 50px 4% 40px;
     }
+    .home {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .home .home-content {
+        gap: 1rem;
+    }
 }
 
 @media (max-width: 1220px) {
-    .home {
-        height: 60vh;
-    }
     section {
         padding: 30px 10% 20px;
     }
@@ -318,18 +388,6 @@ footer p{
 
 }
 
-@media (max-width: 1100px){
-    .home .home-text .socials .fa-brands {
-        margin-right: 15px;
-    }
-}
-
-@media (max-width: 900px){
-    .home .home-text .socials .fa-brands {
-        margin-right: 10px;
-    }
-}
-
 @media (max-width: 800px) {
     footer {
         display: grid;
@@ -337,7 +395,7 @@ footer p{
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     header .logo .logo-text {
         font-size: 0em;
     }
@@ -391,10 +449,12 @@ footer p{
     }
     .home {
         width: 100%;
-        height: 65vh;
-        grid-template-columns: 1fr;
         align-items: center;
         margin-bottom: 100px;
+    }
+
+    .home .home-content {
+        grid-template-columns: 1fr;
     }
 
     .about {
@@ -417,6 +477,17 @@ footer p{
         padding-top: .75rem;
     }
 
+    .home .home-text img{
+        font-size: 1rem;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .home .home-text .call-to-action-row {
+        margin-left: 0px;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media (max-width: 520px) {
@@ -424,9 +495,5 @@ footer p{
         white-space: nowrap;
         padding-top: 12px;
         padding-bottom: 12px;
-    }
-
-    .home .home-text .socials .fa-brands {
-        margin-right: 10px;
     }
 }
