@@ -153,10 +153,10 @@ header .cta button:hover {
 /* Video background */
 .home-video-bg {
     position: absolute;
-    top: -2px;
+    top: -80px;
     left: 0;
     width: 100%;
-    height: calc(100% + 2px);
+    height: calc(100% + 80px);
     overflow: hidden;
     z-index: 0;
     background-color: #000;
@@ -330,6 +330,14 @@ header .cta button:hover {
     width: 100%;
     border-radius: 15px;
     box-shadow: 0 0 10px var(--theme-black);
+}
+
+/* Hide iOS Safari native play button overlay on muted autoplay videos */
+.games .games-image video::-webkit-media-controls {
+    display: none !important;
+}
+.games .games-image video::-webkit-media-controls-start-playback-button {
+    display: none !important;
 }
 
 .games .games-text h3 {

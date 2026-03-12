@@ -176,6 +176,7 @@ header .cta button:hover {
     margin-bottom: 2rem;
     margin-top: .4rem;
     font-size: 1rem;
+    font-style: italic;
 }
 
 .home .home-text p {
@@ -371,6 +372,10 @@ footer p{
         order: 1;
     }
 
+    .games .games-text {
+        text-align: center;
+    }
+
     .home .home-image{
         order: -1;
     }
@@ -401,7 +406,7 @@ footer p{
         padding: 85px 10% 65px;
     }
 
-    .home .home-text .buy-now a, button {
+    .home .home-text .buy-now a, .home .home-text button {
         margin-top: 20px;
         margin-left: 8px;
         font-size: 0;
