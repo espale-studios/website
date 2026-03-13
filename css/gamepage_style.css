@@ -320,7 +320,7 @@ header .cta button:hover {
 .games .game-area {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    align-items: start;
     gap: 2rem;
     margin-top: 30px;
 }
@@ -429,7 +429,7 @@ footer p{
     .games .game-area {
         display: grid;
         grid-template-columns: 1fr;
-        align-items: center;
+        align-items: start;
         gap: 2rem;
     }
 
