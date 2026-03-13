@@ -1,0 +1,431 @@
+/* Shared navbar styles for all pages */
+
+header li,
+header a,
+header button {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--theme-white);
+    text-decoration: none;
+}
+
+
+header .nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 12px;
+    padding: 8px;
+}
+
+header .nav-toggle .nav-toggle-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px 0;
+    background: var(--theme-white);
+    transition: var(--transition);
+}
+
+header .nav-toggle.nav-toggle-primary .nav-toggle-bar {
+    background: var(--theme-white);
+}
+
+header .nav-toggle.nav-toggle-primary:hover .nav-toggle-bar,
+header .nav-toggle.nav-toggle-primary:focus-visible .nav-toggle-bar {
+    background: var(--primary-color);
+}
+
+header .nav-toggle:hover,
+header .nav-toggle:focus-visible {
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+header nav .nav-mobile-cta {
+    display: none;
+}
+
+header nav .nav-mobile-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.2;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: var(--theme-white);
+}
+
+header nav .nav-mobile-cta a:hover {
+    background: var(--theme-white);
+    color: var(--primary-color);
+}
+
+header.nav-open .nav-toggle .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+header.nav-open .nav-toggle .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+header.nav-open .nav-toggle .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+    header > .cta {
+        display: none;
+    }
+
+    header .nav-toggle {
+        display: block;
+        position: relative;
+        z-index: 140;
+    }
+
+    header nav {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        height: 100dvh;
+        width: min(40vw, 250px);
+        background: var(--theme-black);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+        z-index: 130;
+        transform: translateX(100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-top: 90px;
+    }
+
+    header nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    header.nav-open nav {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    header nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        flex: 1;
+        min-height: 0;
+        padding: 10px 0 0;
+    }
+
+    header nav li {
+        display: block;
+        padding: 0;
+    }
+
+    header li a {
+        display: block;
+        line-height: 1.4;
+        padding: 14px 20px;
+        text-align: right;
+    }
+
+    header nav .nav-mobile-cta {
+        display: block;
+        margin-top: auto;
+        padding: 10px 20px calc(50px + env(safe-area-inset-bottom));
+    }
+
+    header nav .nav-mobile-cta a {
+        font-size: 0.9rem;
+        gap: 6px;
+        padding: 8px 12px;
+        border-width: 1px;
+    }
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 11%;
+    background-color: var(--theme-black);
+    box-shadow: 0 0 5px var(--theme-black);
+    padding: 2%;
+    max-height: 100px;
+}
+
+header .logo {
+    transition: var(--transition);
+    cursor: pointer;
+    width: 7%;
+    color: var(--theme-white);
+    align-items: center;
+    display: flex;
+    margin-right: auto;
+}
+
+header .logo:hover {
+    transform: scale(1.1);
+}
+
+header .logo .logo-image {
+    width: 90%;
+    max-height: 70px;
+    min-height: 40px;
+    min-width: 40px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+header .logo .logo-text {
+    margin-right: auto;
+    font-weight: 800;
+    font-size: 2em;
+    line-height: 1;
+}
+
+header nav {
+    list-style: none;
+}
+
+header .nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 12px;
+    padding: 8px;
+}
+
+header .nav-toggle .nav-toggle-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px 0;
+    background: var(--theme-white);
+    transition: var(--transition);
+}
+
+header .nav-toggle.nav-toggle-primary .nav-toggle-bar {
+    background: var(--theme-white);
+}
+
+header .nav-toggle.nav-toggle-primary:hover .nav-toggle-bar,
+header .nav-toggle.nav-toggle-primary:focus-visible .nav-toggle-bar {
+    background: var(--primary-color);
+}
+
+header .nav-toggle:hover,
+header .nav-toggle:focus-visible {
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+header nav .nav-mobile-cta {
+    display: none;
+}
+
+header nav .nav-mobile-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.2;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: var(--theme-white);
+}
+
+header nav .nav-mobile-cta a:hover {
+    background: var(--theme-white);
+    color: var(--primary-color);
+}
+
+header.nav-open .nav-toggle .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+header.nav-open .nav-toggle .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+header.nav-open .nav-toggle .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+header nav li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+header nav li a {
+    transition: var(--transition);
+    color: var(--black);
+}
+
+header nav li a:hover {
+    transform: scale(1.1);
+    color: var(--primary-color-light);
+}
+
+/* This is just for increasing the hitbox size */
+header li a {
+    line-height: 3.2;
+    background: var(--theme-black);
+    padding: 13px 13px;
+}
+
+header .cta button {
+    margin-left: 20px;
+    padding: 8px 20px;
+    background-color: var(--primary-color);
+    color: var(--theme-white);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+header .cta button:hover {
+    background-color: var(--theme-white);
+    transform: scale(1.1);
+    color: var(--primary-color);
+}
+
+@media (max-width: 1680px) {
+    header {
+        padding: 10px 4%;
+    }
+}
+
+@media (max-width: 1220px) {
+    header .logo {
+        width: 7%;
+    }
+}
+
+@media (max-width: 900px) {
+    header > .cta {
+        display: none;
+    }
+
+    header .nav-toggle {
+        display: block;
+        position: relative;
+        z-index: 140;
+    }
+
+    header nav {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: auto;
+        right: 0;
+        height: 100vh;
+        height: 100dvh;
+        width: 200px;
+        background: var(--theme-black);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+        z-index: 130;
+        transform: translateX(100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-top: 90px;
+    }
+
+    header nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    header.nav-open nav {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    header nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        flex: 1;
+        min-height: 0;
+        padding: 10px 0 0;
+    }
+
+    header nav li {
+        display: block;
+        padding: 0;
+    }
+
+    header li a {
+        display: block;
+        line-height: 1.4;
+        padding: 14px 20px;
+        text-align: right;
+    }
+
+    header nav .nav-mobile-cta {
+        display: block;
+        margin-top: auto;
+        padding: 10px 20px calc(50px + env(safe-area-inset-bottom));
+    }
+
+    header nav .nav-mobile-cta a {
+        font-size: 0.9rem;
+        gap: 6px;
+        padding: 8px 12px;
+        border-width: 1px;
+    }
+}
+
+@media (max-width: 800px) {
+    header .cta button {
+        margin-left: 10px;
+        margin-top: 0;
+        padding: 9px 18px;
+        border-radius: 30px;
+    }
+
+    header .logo {
+        width: 15%;
+    }
+}
+
+@media (max-width: 520px) {
+    header .cta button {
+        white-space: nowrap;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}

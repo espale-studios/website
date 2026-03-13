@@ -44,7 +44,7 @@ section {
 }
 
 .section-title {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     font-size: var(--h2-font);
     width: 100%;
     text-align: center;
@@ -347,7 +347,7 @@ header .cta button:hover {
 .games .games-text p {
     font-size: var(--p-font);
     max-width: 450px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 /* Footer */
@@ -404,9 +404,9 @@ footer p{
 }
 
 @media (max-width: 800px) {
-    header .logo .logo-text {
+    /* header .logo .logo-text {
         font-size: 0em;
-    }
+    } */
 
     :root {
         /* Fonts */

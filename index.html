@@ -23,6 +23,7 @@
         <meta name="twitter:image" content="https://www.espalestudios.com/img/thumbnails/thumbnail_espale.png">
         <!-- Scripts -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/navbar.css">
         <link rel="icon" href="img/favicon.ico">
     </head>
 
@@ -33,10 +34,18 @@
                 <img class="logo-image" src="img/logo.png" alt="Espale Studios Logo">
                 <p class="logo-text">ESPALE STUDIOS</p>
             </a>
-            <nav>
+            <button class="nav-toggle nav-toggle-primary" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation"
+                aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav id="primary-navigation">
                 <ul>
                     <li><a href="#About">About</a></li>
                     <li><a href="#Games">Games</a></li>
+                    <li class="nav-mobile-cta"><a href="mailto:contact@espalestudios.com"><i
+                                class="fa-solid fa-envelope"></i> Contact Us</a></li>
                 </ul>
             </nav>
             <a class="cta" href="mailto:contact@espalestudios.com"><button><i class="fa-solid fa-envelope"></i> Contact
@@ -144,6 +153,7 @@
         <script src="https://kit.fontawesome.com/f1677e7b85.js" crossorigin="anonymous"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="js/nav_toggle.js"></script>
         <script src="js/slogan_changer.js"></script>
         <script src="js/copyright_year.js"></script>
     </body>

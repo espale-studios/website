@@ -26,6 +26,7 @@
         <meta name="twitter:image" content="https://www.espalestudios.com/img/thumbnails/thumbnail_ingression.png">
         <!-- Scripts -->
         <link rel="stylesheet" href="css/gamepage_style.css">
+        <link rel="stylesheet" href="css/navbar.css">
         <link rel="icon" href="img/favicon_ingression.ico">
     </head>
 
@@ -36,10 +37,21 @@
                 <img class="logo-image" src="img/logo.png" alt="Espale Studios Logo">
                 <p class="logo-text">ESPALE STUDIOS</p>
             </a>
-            <nav>
+            <button class="nav-toggle nav-toggle-primary" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation"
+                aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav id="primary-navigation">
                 <ul>
                     <li><a href="#About">About</a></li>
                     <li><a href="#Trailer">Trailer</a></li>
+                    <li><a href="#Games">Details</a></li>
+                    <li class="nav-mobile-cta"><a
+                            href="https://drive.google.com/drive/u/0/folders/1cN3uhOVEPWTi8iwVf6dE6SA_B2zndzfS"
+                            target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-newspaper"></i> Press
+                            Kit</a></li>
                 </ul>
             </nav>
             <a class="cta"
@@ -110,6 +122,7 @@
 
         <!-- GIFs -->
         <section class="games" id="Games">
+            <h2 class="section-title">Details</h2>
             <!-- Portals -->
             <div class="game-area">
                 <div class="games-image">
@@ -197,6 +210,7 @@
         <!-- Scripts -->
         <link rel="stylesheet" href="css/ingression_colors.css">
         <script src="https://kit.fontawesome.com/f1677e7b85.js" crossorigin="anonymous"></script>
+        <script src="js/nav_toggle.js"></script>
         <script src="js/copyright_year.js"></script>
         <script src="js/autoplay.js"></script>
     </body>

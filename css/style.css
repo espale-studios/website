@@ -44,7 +44,7 @@ section {
 }
 
 .section-title {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     font-size: var(--h2-font);
     width: 100%;
     text-align: center;
@@ -59,6 +59,7 @@ header li, a, button {
 }
 
 header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -339,9 +340,9 @@ footer p{
 }
 
 @media (max-width: 700px) {
-    header .logo .logo-text {
+    /* header .logo .logo-text {
         font-size: 0em;
-    }
+    } */
 
     :root {
         /* Fonts */
