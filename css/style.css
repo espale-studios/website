@@ -247,11 +247,45 @@ header .cta button:hover {
     margin-top: 30px;
 }
 
-.games .games-image img, video{
+.games .games-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--theme-black);
+}
+
+.games .games-image img, .games .games-image video, .games .games-image iframe {
     height: auto;
     width: 100%;
     border-radius: 15px;
-    box-shadow: 0 0 10px var(--theme-black);
+}
+
+.games .games-image .games-image-link,
+.games .games-image .games-image-link img {
+    display: block;
+}
+
+.games .games-image .games-image-hover-video {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    border: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.games .games-image.games-image-preview:hover .games-image-hover-video,
+.games .games-image.games-image-preview:focus-within .games-image-hover-video {
+    opacity: 1;
+    visibility: visible;
+}
+
+.games .games-image.games-image-preview:hover .games-image-link img,
+.games .games-image.games-image-preview:focus-within .games-image-link img {
+    opacity: 0;
+    transition: opacity 0.25s ease;
 }
 
 .games .games-text h3 {
@@ -434,5 +468,15 @@ footer p{
 
     .home .home-text .socials .fa-brands {
         margin-right: 10px;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .games .games-image .games-image-hover-video {
+        display: none;
+    }
+
+    .games .games-image .games-image-link img {
+        opacity: 1 !important;
     }
 }

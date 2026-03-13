@@ -211,7 +211,7 @@ header .cta button:hover {
     align-items: center;
 }
 
-.home::after {
+/* .home::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -221,7 +221,7 @@ header .cta button:hover {
     background: linear-gradient(to bottom, transparent, #FFFFFF);
     z-index: 3;
     pointer-events: none;
-}
+} */
 
 .home .home-image {
     background: transparent;
