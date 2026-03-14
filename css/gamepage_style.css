@@ -458,11 +458,13 @@ footer p{
     .home {
         width: 100%;
         align-items: center;
+        padding-top: calc(24px + env(safe-area-inset-top));
         margin-bottom: 100px;
     }
 
     .home .home-content {
         grid-template-columns: 1fr;
+        transform: none;
     }
 
     .about {
