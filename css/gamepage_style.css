@@ -346,8 +346,9 @@ header .cta button:hover {
 
 .games .games-text p {
     font-size: var(--p-font);
-    max-width: 450px;
+    /* max-width: 450px; */
     margin-bottom: 1rem;
+    text-align: justify;
 }
 
 /* Footer */

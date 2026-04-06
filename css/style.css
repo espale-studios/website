@@ -247,6 +247,10 @@ header .cta button:hover {
     margin-top: 30px;
 }
 
+.games .game-area + .game-area {
+    margin-top: 100px;
+}
+
 .games .games-image {
     position: relative;
     border-radius: 15px;
@@ -294,8 +298,9 @@ header .cta button:hover {
 
 .games .games-text p {
     font-size: var(--p-font);
-    max-width: 450px;
+    /* max-width: 450px; */
     margin-bottom: 2rem;
+    text-align: justify;
 }
 
 .games .games-text a button{
@@ -364,6 +369,21 @@ footer p{
     .home .home-text .socials .fa-brands {
         margin-right: 10px;
     }
+
+    .games .game-area {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 2rem;
+    }
+
+    .games .game-area .games-image{
+        order: 1;
+    }
+
+    .games .games-text {
+        text-align: center;
+    }
 }
 
 @media (max-width: 800px) {
@@ -394,21 +414,6 @@ footer p{
 
     header .logo {
         width: 15%;
-    }
-
-    .games .game-area {
-        display: grid;
-        grid-template-columns: 1fr;
-        align-items: start;
-        gap: 2rem;
-    }
-
-    .games .game-area .games-image{
-        order: 1;
-    }
-
-    .games .games-text {
-        text-align: center;
     }
 
     .home .home-image{
