@@ -1,0 +1,156 @@
+/* Playful touches shared by every page: hover polish, hero glow and scroll pop-ins.
+   Load after the page stylesheet so these win. Colors come from the page's *_colors.css. */
+
+:root {
+    /* Springy easing for every hover transition that uses var(--transition) */
+    --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition: all 0.35s var(--spring) 0s;
+}
+
+/* Game page hero: a soft glow in the page color behind the title and blurb */
+.home:has(.home-video-bg) .home-text {
+    position: relative;
+    isolation: isolate;
+    /* Shrink to the text itself so the glow is centered on it rather than on the whole column */
+    width: fit-content;
+    justify-self: start;
+}
+
+.home:has(.home-video-bg) .home-text::before {
+    content: '';
+    position: absolute;
+    inset: -25%;
+    z-index: -1;
+    /* Hold full strength across the text, then fade out beyond its edges */
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--primary-color) 45%, transparent) 45%, transparent);
+    filter: blur(24px);
+    animation: glow 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* The glow reaches past the text, keep it from widening the page on phones */
+.home:has(.home-video-bg) {
+    overflow-x: clip;
+}
+
+@media (max-width: 800px) {
+    .home:has(.home-video-bg) .home-text {
+        justify-self: center;
+    }
+}
+
+@keyframes glow {
+    50% {
+        opacity: 0.6;
+        scale: 0.95;
+    }
+}
+
+/* Hero characters float gently; the home page glow fades out instead of ending in a white box */
+.home .home-image img {
+    animation: bob 4s ease-in-out infinite;
+}
+
+.home .home-image img[src*="home_hero"] {
+    background: radial-gradient(var(--primary-color-dark) 0%, var(--primary-color-light) 10%, transparent 65%);
+}
+
+@keyframes bob {
+    50% {
+        translate: 0 -12px;
+    }
+}
+
+/* Buttons squish when pressed (scale composes with the hover transform) */
+button:active {
+    scale: 0.92;
+}
+
+/* Social icons wiggle on hover */
+.home .home-text .socials .fa-brands:hover {
+    animation: wiggle 0.45s ease-in-out;
+}
+
+@keyframes wiggle {
+    25% {
+        rotate: -6deg;
+    }
+
+    75% {
+        rotate: 6deg;
+    }
+}
+
+/* Game media lifts, tilts and glows in the page color on hover */
+.games .games-image {
+    border-radius: 15px;
+    transition: transform 0.35s var(--spring), box-shadow 0.35s ease;
+}
+
+.games .games-image video {
+    display: block;
+}
+
+/* Mouse hover lifts the media; on touch screens js/tap_lift.js adds .tapped for a moment instead,
+   since a tapped element would otherwise stay "hovered" until you tap elsewhere */
+@media (hover: hover) and (pointer: fine) {
+    .games .games-image:hover {
+        transform: translateY(-6px) rotate(-1deg);
+        box-shadow: 0 16px 30px color-mix(in srgb, var(--primary-color) 40%, transparent);
+    }
+
+    .games .game-area:nth-of-type(even) .games-image:hover {
+        transform: translateY(-6px) rotate(1deg);
+    }
+}
+
+.games .games-image.tapped {
+    transform: translateY(-6px) rotate(-1deg);
+    box-shadow: 0 16px 30px color-mix(in srgb, var(--primary-color) 40%, transparent);
+}
+
+.games .game-area:nth-of-type(even) .games-image.tapped {
+    transform: translateY(-6px) rotate(1deg);
+}
+
+/* Scroll pop-ins (js/reveal.js adds .reveal to below-the-fold elements, then .revealed when they show up) */
+.reveal {
+    opacity: 0;
+}
+
+.reveal.revealed {
+    animation: pop-in 0.7s var(--spring) var(--reveal-delay, 0ms) both;
+}
+
+@keyframes pop-in {
+    from {
+        opacity: 0;
+        translate: 0 40px;
+        scale: 0.95;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+        scale: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition: all 0.2s ease 0s;
+    }
+
+    .home .home-image img,
+    .home:has(.home-video-bg) .home-text::before,
+    .home .home-text .socials .fa-brands:hover {
+        animation: none;
+    }
+
+    .games .games-image:hover,
+    .games .game-area:nth-of-type(even) .games-image:hover,
+    .games .games-image.tapped,
+    .games .game-area:nth-of-type(even) .games-image.tapped {
+        transform: none;
+    }
+}

@@ -1,22 +1,42 @@
-// Force autoplay for muted videos on Chrome iOS, which ignores the autoplay attribute/parameter unlike Safari.
+// Start muted videos from script instead of the autoplay attribute: the hero waits until the page has loaded and
+// the detail clips until they're about to scroll into view, so they don't compete with the first paint.
+// Playing from script also covers Chrome iOS, which ignores the autoplay attribute unlike Safari.
 
-// HTML5 videos (game clips and the hero background) — play immediately and re-play whenever they scroll into view.
-const gameVideos = document.querySelectorAll('.games-image video, .home-video-bg video');
+const heroVideo = document.querySelector('.home-video-bg video');
+const clipVideos = document.querySelectorAll('.games-image video');
+const onScreen = new Set();
 
+const play = (v) => v.play().catch(() => {});
+
+// Play videos near the screen and pause them once they scroll away
 const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.play().catch(() => {});
+            onScreen.add(entry.target);
+            play(entry.target);
+        } else {
+            onScreen.delete(entry.target);
+            entry.target.pause();
         }
     });
-}, { threshold: 0.1 });
+}, { rootMargin: '200px 0px' });
 
-gameVideos.forEach(v => {
-    v.play().catch(() => {});
-    videoObserver.observe(v);
-});
+clipVideos.forEach(v => videoObserver.observe(v));
 
-// Browsers pause muted videos while the tab is hidden, resume them when it is shown again.
+if (heroVideo) {
+    const startHero = () => {
+        heroVideo.preload = 'auto';
+        videoObserver.observe(heroVideo);
+    };
+
+    if (document.readyState === 'complete') {
+        startHero();
+    } else {
+        window.addEventListener('load', startHero);
+    }
+}
+
+// Browsers pause muted videos while the tab is hidden, resume the visible ones when it is shown again.
 document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) gameVideos.forEach(v => v.play().catch(() => {}));
+    if (!document.hidden) onScreen.forEach(play);
 });

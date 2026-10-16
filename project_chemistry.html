@@ -27,8 +27,12 @@
         <meta name="twitter:image"
             content="https://www.espalestudios.com/img/games/project_chemistry/thumbnail_project_chemistry.png">
         <!-- Scripts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap">
         <link rel="stylesheet" href="css/gamepage_style.css">
         <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/effects.css">
         <link rel="icon" href="img/favicon_project_chemistry.ico">
         <!-- Google Search -->
         <script type="application/ld+json">
@@ -83,7 +87,7 @@
         <section class="home" id="Home">
             <!-- Background Video -->
             <div class="home-video-bg" inert aria-hidden="true">
-                <video autoplay muted loop playsinline disablepictureinpicture preload="auto">
+                <video muted loop playsinline disablepictureinpicture preload="none">
                     <source type="video/mp4" src="img/games/project_chemistry/project_chemistry_hero_bg_video.mp4">
                 </video>
             </div>
@@ -108,7 +112,9 @@
                 </div>
 
                 <div class="home-image">
-                    <img src="img/games/project_chemistry/project_chemistry_hero.webp" alt="A Carbon Atom">
+                    <img src="img/games/project_chemistry/project_chemistry_hero_720.webp"
+                        srcset="img/games/project_chemistry/project_chemistry_hero_720.webp 720w, img/games/project_chemistry/project_chemistry_hero.webp 1432w"
+                        sizes="(max-width: 800px) 90vw, 45vw" width="1432" height="1080" alt="A Carbon Atom">
                 </div>
             </div>
         </section>
@@ -131,7 +137,9 @@
         <!-- Trailer -->
         <section class="about" id="Trailer">
             <h2 class="section-title">Trailer</h2>
-            <iframe class="game-trailer" src="https://www.youtube.com/embed/Nr-wJC6kdM0"></iframe>
+            <a class="game-trailer trailer-facade" href="https://www.youtube.com/watch?v=Nr-wJC6kdM0" data-youtube-id="Nr-wJC6kdM0" aria-label="Play the Project Chemistry trailer">
+                <img src="https://i.ytimg.com/vi_webp/Nr-wJC6kdM0/maxresdefault.webp" alt="" loading="lazy">
+            </a>
         </section>
 
         <!-- GIFs -->
@@ -140,7 +148,7 @@
             <!-- Elements -->
             <div class="game-area">
                 <div class="games-image">
-                    <video autoplay loop muted playsinline>
+                    <video loop muted playsinline preload="none">
                         <source type="video/mp4" src="img/games/project_chemistry/project_chemistry_gif_01.mp4"
                             alt="a GIF showcasing portals from Project Chemistry">
                     </video>
@@ -160,7 +168,7 @@
                 </div>
 
                 <div class="games-image">
-                    <video autoplay loop muted playsinline>
+                    <video loop muted playsinline preload="none">
                         <source type="video/mp4" src="img/games/project_chemistry/project_chemistry_gif_02.mp4"
                             alt="a GIF showcasing the Subject-D16 chasing Rina">
                     </video>
@@ -169,7 +177,7 @@
             <!-- Sandbox Mode -->
             <div class="game-area">
                 <div class="games-image">
-                    <video autoplay loop muted playsinline>
+                    <video loop muted playsinline preload="none">
                         <source type="video/mp4" src="img/games/project_chemistry/project_chemistry_gif_03.mp4"
                             alt="a GIF showcasing Rina going thru portals looking at the same direction">
                     </video>
@@ -188,7 +196,7 @@
                 </div>
 
                 <div class="games-image">
-                    <video autoplay loop muted playsinline>
+                    <video loop muted playsinline preload="none">
                         <source type="video/mp4" src="img/games/project_chemistry/project_chemistry_gif_04.mp4"
                             alt="a GIF showcasing the sword-vine mechanics from Project Chemistry">
                     </video>
@@ -210,7 +218,10 @@
         <script src="https://kit.fontawesome.com/f1677e7b85.js" crossorigin="anonymous"></script>
         <script src="js/nav_toggle.js"></script>
         <script src="js/copyright_year.js"></script>
+        <script src="js/reveal.js"></script>
+        <script src="js/tap_lift.js"></script>
         <script src="js/autoplay.js"></script>
+        <script src="js/trailer.js"></script>
     </body>
 
 </html>
