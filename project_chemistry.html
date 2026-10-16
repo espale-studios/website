@@ -82,12 +82,10 @@
         <!-- Home -->
         <section class="home" id="Home">
             <!-- Background Video -->
-            <div class="home-video-bg">
-                <iframe
-                    src="https://www.youtube.com/embed/5FfwLk39K6I?autoplay=1&mute=1&loop=1&controls=0&rel=0&disablekb=1&playsinline=1&modestbranding=1&showinfo=0&enablejsapi=1&playlist=5FfwLk39K6I"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    title="Project Chemistry Trailer"></iframe>
+            <div class="home-video-bg" inert aria-hidden="true">
+                <video autoplay muted loop playsinline disablepictureinpicture preload="auto">
+                    <source type="video/webm" src="img/games/project_chemistry/project_chemistry_hero_bg_video.webm">
+                </video>
             </div>
             <div class="home-video-overlay"></div>
 
