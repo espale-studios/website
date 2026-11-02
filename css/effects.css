@@ -55,6 +55,11 @@
     background: radial-gradient(var(--primary-color-dark) 0%, var(--primary-color-light) 10%, transparent 65%);
 }
 
+/* ChemHex: a round glow, tighter and softer-edged than the home one */
+.home .home-image img[src*="chemhex_hero"] {
+    background: radial-gradient(circle closest-side, var(--primary-color-dark) 0%, var(--primary-color-light) 10%, transparent 50%);
+}
+
 @keyframes bob {
     50% {
         translate: 0 -12px;
